@@ -1,0 +1,7 @@
+# 纯本地化配置(可改, 重启脚本生效)
+# AI话术=1 时使用AI生成(需联网+有效key); =0 时直接发送 话术.txt 内容
+AI话术=0
+AImode=ep-20260308180203-vzdbk
+AIkey=64e65631-8544-4521-971e-c5102c97c30a
+DAImode=deepseek-chat
+DAIkey=sk-329d4326159245ec97441525a33fb72c

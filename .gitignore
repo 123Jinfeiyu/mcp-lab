@@ -1,0 +1,23 @@
+# ---- 构建产物（可由源码重建；顶层原始 APK 保留）----
+build/
+dist/
+.gradle/
+.cache/
+
+# ---- Python / Node 环境 ----
+__pycache__/
+*.py[cod]
+node_modules/
+.venv/
+venv/
+site-packages/
+
+# ---- 运行期 ----
+*.log
+*.tmp
+
+# ---- 编辑器 / 系统 ----
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

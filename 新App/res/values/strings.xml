@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AI私信助手本地版</string>
+    <string name="access_desc">用于执行抖音界面自动点击与文字输入</string>
+</resources>

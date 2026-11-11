@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<input-method xmlns:android="http://schemas.android.com/apk/res/android"
+    android:settingsActivity="com.sixzs.local.MainActivity">
+    <subtype
+        android:label="AI本地输入法"
+        android:imeSubtypeMode="keyboard" />
+</input-method>

@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF7F7F7">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="center" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="① 权限"
+            android:textStyle="bold"
+            android:paddingTop="10dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnOverlay"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="悬浮窗权限" />
+
+            <Button
+                android:id="@+id/btnAccess"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="无障碍服务" />
+
+            <Button
+                android:id="@+id/btnBattery"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="电池优化" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnIme"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="输入法(启用并选中)" />
+
+            <Button
+                android:id="@+id/btnCap"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="截图授权" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvPermState"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#FF666666"
+            android:text="" />
+
+        <Button
+            android:id="@+id/btnGuide"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="权限向导（按顺序自动打开缺失项）" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnStorage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="存储权限" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="② 配置（照抄原界面）"
+            android:textStyle="bold"
+            android:paddingTop="10dp" />
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="名字:" />
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_edit"
+            android:text="" />
+
+        <RadioGroup
+            android:id="@+id/rgMode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton android:id="@+id/rbSearch" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" android:text="搜索模式" />
+            <RadioButton android:id="@+id/rbUid" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="UID跳转模式" />
+        </RadioGroup>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="脚本整体运行间隔(毫秒):" />
+            <EditText android:id="@+id/etInterval" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:background="@drawable/bg_edit" android:text="1000" />
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="到达主页后停留:" />
+            <EditText android:id="@+id/etStay1" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:background="@drawable/bg_edit" android:text="3" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="到" />
+            <EditText android:id="@+id/etStay2" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:background="@drawable/bg_edit" android:text="5" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="(秒)" />
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="搜索模式私信时长超过" />
+            <EditText android:id="@+id/etPmSearch" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:background="@drawable/bg_edit" android:text="20" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="分钟后回复" />
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="UID模式跳转达到" />
+            <EditText android:id="@+id/etPmUid" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:background="@drawable/bg_edit" android:text="50" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="次后回复" />
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="回复完毕后刷" />
+            <EditText android:id="@+id/etVideos" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:background="@drawable/bg_edit" android:text="10" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="个视频切换账号" />
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+            <CheckBox android:id="@+id/cbFenduan" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" android:text="分段" />
+            <CheckBox android:id="@+id/cbFuhao" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="符号" />
+            <CheckBox android:id="@+id/cbDanci" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="单词" />
+        </LinearLayout>
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="联系1:" />
+        <EditText android:id="@+id/etC1" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/bg_edit" />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="联系2:" />
+        <EditText android:id="@+id/etC2" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/bg_edit" />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="联系3:" />
+        <EditText android:id="@+id/etC3" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/bg_edit" />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="联系4:" />
+        <EditText android:id="@+id/etC4" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/bg_edit" />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="联系5:" />
+        <EditText android:id="@+id/etC5" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/bg_edit" />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="联系6:" />
+        <EditText android:id="@+id/etC6" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/bg_edit" />
+
+        <CheckBox
+            android:id="@+id/cbAi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AI话术(关闭则发送下面的话术)" />
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="话术:" />
+        <EditText
+            android:id="@+id/etScript"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minLines="3"
+            android:gravity="top"
+            android:background="@drawable/bg_edit"
+            android:text="你好，很高兴认识你" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="10dp">
+
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="保存配置" />
+
+            <Button
+                android:id="@+id/btnFloat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="启动悬浮窗" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
