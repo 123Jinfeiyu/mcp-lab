@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ===== AI 私信助手 设计令牌（科技蓝） ===== -->
+    <color name="pa_brand">#2F6FA8</color>          <!-- 主色: 科技蓝 -->
+    <color name="pa_brand_dark">#1E4E77</color>     <!-- 主色深 -->
+    <color name="pa_brand_light">#EDF4FA</color>    <!-- 主色浅: 卡片底 -->
+
+    <color name="pa_bg">#F5F7F9</color>            <!-- 页面底 -->
+    <color name="pa_card">#FFFFFFFF</color>          <!-- 卡片底 -->
+    <color name="pa_line">#DEE5EC</color>            <!-- 描边/分隔线 -->
+    <color name="pa_line_strong">#C7D3DE</color>    <!-- 输入框描边 -->
+
+    <color name="pa_ink">#1E2A36</color>            <!-- 主文字 -->
+    <color name="pa_ink_2">#5A6B7B</color>          <!-- 次文字 -->
+    <color name="pa_ink_3">#93A2B0</color>          <!-- 占位/弱文字 -->
+
+    <color name="pa_ok">#2E9E6B</color>
+    <color name="pa_warn">#C9822B</color>
+    <color name="pa_err">#D34A4A</color>
+
+    <dimen name="pa_gap_xs">4dp</dimen>
+    <dimen name="pa_gap_s">8dp</dimen>
+    <dimen name="pa_gap_m">12dp</dimen>
+    <dimen name="pa_gap_l">18dp</dimen>
+    <dimen name="pa_gap_xl">26dp</dimen>
+
+    <dimen name="pa_radius">12dp</dimen>
+    <dimen name="pa_radius_s">8dp</dimen>
+    <dimen name="pa_input_h">44dp</dimen>
+    <dimen name="pa_btn_h">46dp</dimen>
+</resources>

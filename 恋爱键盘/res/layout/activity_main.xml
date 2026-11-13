@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  恋爱键盘 · 设置页
+  设计: 顶部品牌区 → 卡片化分区 → 底部主操作
+  所有 id 与 MainActivity.java 保持一致, 勿改
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lk_bg"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/lk_gap_xl">
+
+        <!-- ============ 顶部品牌区 ============ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_hero"
+            android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="26dp"
+            android:paddingBottom="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="恋爱键盘"
+                android:textColor="#FFFFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="复制对方的消息 → AI 判类型写话术 → 点一下填进聊天框"
+                android:textColor="#FBD3E2"
+                android:textSize="13sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvPerm"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="#FFE3F0"
+                    android:textSize="11sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ============ ① 智谱 API ============ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/lk_gap_m"
+            android:layout_marginTop="@dimen/lk_gap_m"
+            android:layout_marginRight="@dimen/lk_gap_m"
+            android:background="@drawable/bg_card"
+            android:orientation="vertical"
+            android:padding="@dimen/lk_gap_m">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="① 智谱 API"
+                android:textColor="@color/lk_brand_dark"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/lk_gap_m"
+                android:text="API Key"
+                android:textColor="@color/lk_ink_2"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/etKey"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/lk_input_h"
+                android:layout_marginTop="@dimen/lk_gap_xs"
+                android:background="@drawable/bg_input"
+                android:hint="智谱 open.bigmodel.cn 的 Key"
+                android:inputType="textPassword"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:textColor="@color/lk_ink"
+                android:textColorHint="@color/lk_ink_3"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/lk_gap_m"
+                android:text="文本模型"
+                android:textColor="@color/lk_ink_2"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/etModel"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/lk_input_h"
+                android:layout_marginTop="@dimen/lk_gap_xs"
+                android:background="@drawable/bg_input"
+                android:hint="glm-4-flash"
+                android:inputType="text"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:textColor="@color/lk_ink"
+                android:textColorHint="@color/lk_ink_3"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/lk_gap_m"
+                android:text="视觉模型（带截图时用）"
+                android:textColor="@color/lk_ink_2"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/etVision"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/lk_input_h"
+                android:layout_marginTop="@dimen/lk_gap_xs"
+                android:background="@drawable/bg_input"
+                android:hint="glm-4.6v（最快，比 glm-4.5v 快 7 倍）"
+                android:inputType="text"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:textColor="@color/lk_ink"
+                android:textColorHint="@color/lk_ink_3"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <!-- ============ ② 回复风格 ============ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/lk_gap_m"
+            android:layout_marginTop="@dimen/lk_gap_s"
+            android:layout_marginRight="@dimen/lk_gap_m"
+            android:background="@drawable/bg_card"
+            android:orientation="vertical"
+            android:padding="@dimen/lk_gap_m">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="② 回复风格"
+                android:textColor="@color/lk_brand_dark"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/lk_gap_m"
+                android:text="风格偏好（可留空）"
+                android:textColor="@color/lk_ink_2"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/etStyle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/lk_input_h"
+                android:layout_marginTop="@dimen/lk_gap_xs"
+                android:background="@drawable/bg_input"
+                android:hint="例：温柔一点，口语化，别太油，多用短句"
+                android:inputType="text"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:textColor="@color/lk_ink"
+                android:textColorHint="@color/lk_ink_3"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/lk_gap_m"
+                android:text="分类体系（逗号分隔，悬浮窗下拉框会用到）"
+                android:textColor="@color/lk_ink_2"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/etTypes"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/lk_input_h"
+                android:layout_marginTop="@dimen/lk_gap_xs"
+                android:background="@drawable/bg_input"
+                android:hint="幽默型,搭讪型,温柔型,高冷型,直球型,共情型"
+                android:inputType="text"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:textColor="@color/lk_ink"
+                android:textColorHint="@color/lk_ink_3"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/lk_gap_m"
+                android:text="每种给几条回复"
+                android:textColor="@color/lk_ink_2"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/etCount"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/lk_input_h"
+                android:layout_marginTop="@dimen/lk_gap_xs"
+                android:background="@drawable/bg_input"
+                android:hint="3"
+                android:inputType="number"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:textColor="@color/lk_ink"
+                android:textColorHint="@color/lk_ink_3"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <!-- ============ ③ 填入与截图 ============ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/lk_gap_m"
+            android:layout_marginTop="@dimen/lk_gap_s"
+            android:layout_marginRight="@dimen/lk_gap_m"
+            android:background="@drawable/bg_card"
+            android:orientation="vertical"
+            android:padding="@dimen/lk_gap_m">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="③ 填入与截图"
+                android:textColor="@color/lk_brand_dark"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/lk_gap_m"
+                android:text="目标 App 包名（空＝不限制）"
+                android:textColor="@color/lk_ink_2"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/etApps"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/lk_input_h"
+                android:layout_marginTop="@dimen/lk_gap_xs"
+                android:background="@drawable/bg_input"
+                android:hint="例：com.ss.android.ugc.aweme,com.xingin.xhs"
+                android:inputType="text"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:textColor="@color/lk_ink"
+                android:textColorHint="@color/lk_ink_3"
+                android:textSize="13sp" />
+
+            <CheckBox
+                android:id="@+id/cbAutoSend"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/lk_gap_s"
+                android:buttonTint="@color/lk_brand"
+                android:text="点候选回复后直接填入并发送（关闭则先在编辑框改好再发）"
+                android:textColor="@color/lk_ink"
+                android:textSize="13sp" />
+
+            <CheckBox
+                android:id="@+id/cbShotCrop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:buttonTint="@color/lk_brand"
+                android:text="截图自动裁剪到聊天区域（省流量，减少无关像素干扰）"
+                android:textColor="@color/lk_ink"
+                android:textSize="13sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/lk_gap_m"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="截图长边（px）"
+                        android:textColor="@color/lk_ink_2"
+                        android:textSize="12sp" />
+
+                    <EditText
+                        android:id="@+id/etMaxEdge"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/lk_input_h"
+                        android:layout_marginTop="@dimen/lk_gap_xs"
+                        android:background="@drawable/bg_input"
+                        android:hint="1280"
+                        android:inputType="number"
+                        android:paddingLeft="12dp"
+                        android:paddingRight="12dp"
+                        android:textColor="@color/lk_ink"
+                        android:textColorHint="@color/lk_ink_3"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="@dimen/lk_gap_m"
+                    android:layout_height="1dp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="JPEG 质量"
+                        android:textColor="@color/lk_ink_2"
+                        android:textSize="12sp" />
+
+                    <EditText
+                        android:id="@+id/etQuality"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/lk_input_h"
+                        android:layout_marginTop="@dimen/lk_gap_xs"
+                        android:background="@drawable/bg_input"
+                        android:hint="70"
+                        android:inputType="number"
+                        android:paddingLeft="12dp"
+                        android:paddingRight="12dp"
+                        android:textColor="@color/lk_ink"
+                        android:textColorHint="@color/lk_ink_3"
+                        android:textSize="13sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvShot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/lk_gap_m"
+                android:background="@drawable/bg_input"
+                android:padding="10dp"
+                android:textColor="@color/lk_ink_2"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <!-- ============ ④ 权限与测试 ============ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/lk_gap_m"
+            android:layout_marginTop="@dimen/lk_gap_s"
+            android:layout_marginRight="@dimen/lk_gap_m"
+            android:background="@drawable/bg_card"
+            android:orientation="vertical"
+            android:padding="@dimen/lk_gap_m">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="④ 权限与测试"
+                android:textColor="@color/lk_brand_dark"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/lk_gap_s"
+                android:text="Android 11+ 用无障碍截图（免授权）；以下为 Android 10 及以下准备"
+                android:textColor="@color/lk_ink_3"
+                android:textSize="11sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/lk_gap_s"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnTestShot"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="@dimen/lk_gap_s"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_btn_secondary"
+                    android:minWidth="0dp"
+                    android:paddingLeft="0dp"
+                    android:paddingRight="0dp"
+                    android:text="测试截图"
+                    android:textColor="@color/lk_brand_dark"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/btnSaveShot"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_btn_secondary"
+                    android:minWidth="0dp"
+                    android:paddingLeft="0dp"
+                    android:paddingRight="0dp"
+                    android:text="保存截图"
+                    android:textColor="@color/lk_brand_dark"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnCap"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="@dimen/lk_gap_s"
+                android:background="@drawable/bg_btn_secondary"
+                android:minWidth="0dp"
+                android:text="授权截图（Android 11 以下需要）"
+                android:textColor="@color/lk_brand_dark"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btnImePick"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="@dimen/lk_gap_s"
+                android:background="@drawable/bg_btn_secondary"
+                android:minWidth="0dp"
+                android:text="设为默认输入法（剪贴板读取必需）"
+                android:textColor="@color/lk_brand_dark"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btnIme"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="@dimen/lk_gap_s"
+                android:background="@drawable/bg_btn_secondary"
+                android:minWidth="0dp"
+                android:text="打开输入法设置"
+                android:textColor="@color/lk_brand_dark"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btnTest"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="@dimen/lk_gap_s"
+                android:background="@drawable/bg_btn_secondary"
+                android:minWidth="0dp"
+                android:text="测试分类（看 AI 输出）"
+                android:textColor="@color/lk_brand_dark"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btnSendTest"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="@dimen/lk_gap_s"
+                android:background="@drawable/bg_btn_secondary"
+                android:minWidth="0dp"
+                android:text="发送（测试按钮，用于验证自动发送）"
+                android:textColor="@color/lk_brand_dark"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tvResult"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/lk_gap_s"
+                android:background="@drawable/bg_input"
+                android:padding="10dp"
+                android:textColor="@color/lk_ink_2"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <!-- ============ 主操作 ============ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/lk_gap_m"
+            android:layout_marginTop="@dimen/lk_gap_m"
+            android:layout_marginRight="@dimen/lk_gap_m"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnFloat"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/lk_btn_h"
+                android:layout_marginRight="@dimen/lk_gap_s"
+                android:layout_weight="1"
+                android:background="@drawable/bg_btn_primary"
+                android:minWidth="0dp"
+                android:paddingLeft="0dp"
+                android:paddingRight="0dp"
+                android:text="启动悬浮窗"
+                android:textColor="#FFFFFFFF"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/lk_btn_h"
+                android:layout_weight="1"
+                android:background="@drawable/bg_btn_primary"
+                android:minWidth="0dp"
+                android:paddingLeft="0dp"
+                android:paddingRight="0dp"
+                android:text="保存配置"
+                android:textColor="#FFFFFFFF"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

@@ -183,6 +183,18 @@ public class Host {
             if ("getWorkPath".equals(method)) {
                 return appContext.getFilesDir().getAbsolutePath();
             }
+            if ("aiAsk".equals(method)) {
+                // 供 Lua 脚本在关键节点问 GLM: 传入问题, 返回模型回答
+                try {
+                    Config cfg = Config.load(appContext);
+                    if (cfg.glmKey == null || cfg.glmKey.trim().isEmpty()) {
+                        return "未配置智谱APIKey";
+                    }
+                    return GlmAgent.askOnce(cfg.glmKey, cfg.aiModel, s(a, 0));
+                } catch (Throwable t) {
+                    return "AI错误: " + t.getMessage();
+                }
+            }
             if ("getConfig".equals(method)) {
                 return getConfig();
             }
@@ -263,6 +275,10 @@ public class Host {
             }
             return "null";
         } catch (Throwable t) {
+            if (LuaHost.stopping) {
+                // 停止流程中 sleep 被打断 / __stop__ 属正常, 静默返回
+                return "null";
+            }
             Logx.e("host call fail: " + method, t);
             return "null";
         }

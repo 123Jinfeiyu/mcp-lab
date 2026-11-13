@@ -18,6 +18,21 @@ public class Config {
     public String[] contacts = new String[6];
     public boolean ai = false;
     public String script = "你好，很高兴认识你";
+    // GLM(智谱) 智能控制
+    public String glmKey = "";
+    public String aiTask = "";
+    public String aiModel = "glm-4.5v";
+    public int aiMaxSteps = 15;
+    /** 风险处理联系人(QQ): 检出违规评论时随预警一起给出 */
+    public String riskQQ = "286622079";
+    /** 主动私信自动回复: 开关 + 用户手动写死的回复内容 */
+    public boolean autoDmReply = false;
+    public String autoDmText = "";
+    public String autoDmApps = "com.ss.android.ugc.aweme,com.xingin.xhs";
+    public int autoDmMaxPerHour = 10;
+    /** 采集时自动向下滚动, 累积更多评论(含楼中楼回复) */
+    public boolean guardScroll = true;
+    public int guardScrollRounds = 6;
 
     public static Config load(Context c) {
         SharedPreferences sp = c.getSharedPreferences("cfg", Context.MODE_PRIVATE);
@@ -38,6 +53,17 @@ public class Config {
         }
         cfg.ai = sp.getBoolean("ai", false);
         cfg.script = sp.getString("script", "你好，很高兴认识你");
+        cfg.glmKey = sp.getString("glmKey", "");
+        cfg.aiTask = sp.getString("aiTask", "");
+        cfg.aiModel = sp.getString("aiModel", "glm-4.5v");
+        cfg.aiMaxSteps = sp.getInt("aiMaxSteps", 15);
+        cfg.riskQQ = sp.getString("riskQQ", "286622079");
+        cfg.autoDmReply = sp.getBoolean("autoDmReply", false);
+        cfg.autoDmText = sp.getString("autoDmText", "");
+        cfg.autoDmApps = sp.getString("autoDmApps", "com.ss.android.ugc.aweme,com.xingin.xhs");
+        cfg.autoDmMaxPerHour = sp.getInt("autoDmMaxPerHour", 10);
+        cfg.guardScroll = sp.getBoolean("guardScroll", true);
+        cfg.guardScrollRounds = sp.getInt("guardScrollRounds", 6);
         return cfg;
     }
 }

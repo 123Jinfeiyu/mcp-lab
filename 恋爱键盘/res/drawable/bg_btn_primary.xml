@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 主按钮: 玫红渐变 -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <gradient
+        android:angle="0"
+        android:startColor="@color/lk_brand"
+        android:endColor="#F0568E" />
+    <corners android:radius="@dimen/lk_radius_s" />
+</shape>

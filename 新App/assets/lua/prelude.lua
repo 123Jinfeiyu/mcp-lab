@@ -153,7 +153,9 @@ local function host(method, ...)
   for i = 1, n do parts[i] = json.encode((select(i, ...))) end
   local res = __host.call(method, '[' .. table.concat(parts, ',') .. ']')
   if res == nil or res == '' or res == 'null' then return nil end
-  return json.decode(res)
+  local ok, v = pcall(json.decode, res)
+  if ok and v ~= nil then return v end
+  return res  -- 不是合法 JSON(如路径/普通字符串)就原样返回
 end
 
 function sleep(ms) host('sleep', tonumber(ms) or 0) end
@@ -194,6 +196,7 @@ function encodeUrl(s) return tostring(host('encodeUrl', tostring(s)) or '') end
 function decodeUrl(s) return tostring(host('decodeUrl', tostring(s)) or '') end
 function fileMD5(p) return tostring(host('fileMD5', tostring(p)) or '') end
 function getWorkPath() return tostring(host('getWorkPath') or '') end
+function aiAsk(prompt) return tostring(host('aiAsk', tostring(prompt)) or '') end
 function fileExist(p) return host('fileExist', tostring(p)) == true end
 function mkdir(p) host('mkdir', tostring(p)) end
 function extractAssets(n, d, p) return host('extractAssets', tostring(n), tostring(d)) == true end

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ===== 恋爱键盘 设计令牌 ===== -->
+    <color name="lk_brand">#E8447D</color>          <!-- 主色: 玫红 -->
+    <color name="lk_brand_dark">#B21F5C</color>     <!-- 主色深: 徽章/强调文字 -->
+    <color name="lk_brand_light">#FFF0F6</color>    <!-- 主色浅: 卡片底/选中态 -->
+
+    <color name="lk_bg">#F7F5F8</color>            <!-- 页面底 -->
+    <color name="lk_card">#FFFFFFFF</color>          <!-- 卡片底 -->
+    <color name="lk_line">#E6DFE6</color>            <!-- 描边/分隔线 -->
+    <color name="lk_line_strong">#D9CFD9</color>    <!-- 输入框描边 -->
+
+    <color name="lk_ink">#2B2430</color>            <!-- 主文字 -->
+    <color name="lk_ink_2">#6B6172</color>          <!-- 次文字/说明 -->
+    <color name="lk_ink_3">#9A8FA0</color>          <!-- 占位/弱文字 -->
+
+    <color name="lk_ok">#2E9E6B</color>             <!-- 成功/通过 -->
+    <color name="lk_warn">#C9822B</color>            <!-- 提醒 -->
+    <color name="lk_err">#D34A4A</color>             <!-- 错误 -->
+
+    <dimen name="lk_gap_xs">4dp</dimen>
+    <dimen name="lk_gap_s">8dp</dimen>
+    <dimen name="lk_gap_m">12dp</dimen>
+    <dimen name="lk_gap_l">18dp</dimen>
+    <dimen name="lk_gap_xl">26dp</dimen>
+
+    <dimen name="lk_radius">12dp</dimen>
+    <dimen name="lk_radius_s">8dp</dimen>
+    <dimen name="lk_input_h">44dp</dimen>
+    <dimen name="lk_btn_h">46dp</dimen>
+</resources>

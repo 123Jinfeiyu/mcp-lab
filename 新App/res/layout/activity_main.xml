@@ -2,28 +2,54 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF7F7F7">
+    android:background="@color/pa_bg">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="12dp">
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="26dp">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/bg_hero"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
             android:text="@string/app_name"
-            android:textSize="20sp"
+            android:textColor="#FFFFFFFF"
+            android:textSize="22sp"
             android:textStyle="bold"
             android:gravity="center" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="4dp"
+            android:gravity="center"
+            android:text="本地化安卓自动化助手 · 看屏决策 / 评论区风控 / 私信守候"
+            android:textColor="@color/pa_ink_3"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="① 权限"
-            android:textStyle="bold"
-            android:paddingTop="10dp" />
+            android:background="@drawable/bg_card"
+            android:paddingLeft="14dp"
+            android:paddingRight="14dp"
+            android:paddingTop="14dp"
+            android:paddingBottom="14dp"
+            android:layout_marginTop="14dp"
+            android:textColor="@color/pa_brand_dark"
+            android:textSize="15sp"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -102,15 +128,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="② 配置（照抄原界面）"
-            android:textStyle="bold"
-            android:paddingTop="10dp" />
+            android:background="@drawable/bg_card"
+            android:paddingLeft="14dp"
+            android:paddingRight="14dp"
+            android:paddingTop="14dp"
+            android:paddingBottom="14dp"
+            android:layout_marginTop="14dp"
+            android:textColor="@color/pa_brand_dark"
+            android:textSize="15sp"
+            />
 
         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="名字:" />
         <EditText
             android:id="@+id/etName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_edit"
+            android:background="@drawable/bg_input"
             android:text="" />
 
         <RadioGroup
@@ -124,32 +157,32 @@
 
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="脚本整体运行间隔(毫秒):" />
-            <EditText android:id="@+id/etInterval" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:background="@drawable/bg_edit" android:text="1000" />
+            <EditText android:id="@+id/etInterval" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:background="@drawable/bg_input" android:text="1000" />
         </LinearLayout>
 
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="到达主页后停留:" />
-            <EditText android:id="@+id/etStay1" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:background="@drawable/bg_edit" android:text="3" />
+            <EditText android:id="@+id/etStay1" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:background="@drawable/bg_input" android:text="3" />
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="到" />
-            <EditText android:id="@+id/etStay2" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:background="@drawable/bg_edit" android:text="5" />
+            <EditText android:id="@+id/etStay2" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:background="@drawable/bg_input" android:text="5" />
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="(秒)" />
         </LinearLayout>
 
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="搜索模式私信时长超过" />
-            <EditText android:id="@+id/etPmSearch" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:background="@drawable/bg_edit" android:text="20" />
+            <EditText android:id="@+id/etPmSearch" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:background="@drawable/bg_input" android:text="20" />
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="分钟后回复" />
         </LinearLayout>
 
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="UID模式跳转达到" />
-            <EditText android:id="@+id/etPmUid" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:background="@drawable/bg_edit" android:text="50" />
+            <EditText android:id="@+id/etPmUid" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:background="@drawable/bg_input" android:text="50" />
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="次后回复" />
         </LinearLayout>
 
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="回复完毕后刷" />
-            <EditText android:id="@+id/etVideos" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:background="@drawable/bg_edit" android:text="10" />
+            <EditText android:id="@+id/etVideos" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:background="@drawable/bg_input" android:text="10" />
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="个视频切换账号" />
         </LinearLayout>
 
@@ -160,17 +193,17 @@
         </LinearLayout>
 
         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="联系1:" />
-        <EditText android:id="@+id/etC1" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/bg_edit" />
+        <EditText android:id="@+id/etC1" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/bg_input" />
         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="联系2:" />
-        <EditText android:id="@+id/etC2" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/bg_edit" />
+        <EditText android:id="@+id/etC2" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/bg_input" />
         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="联系3:" />
-        <EditText android:id="@+id/etC3" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/bg_edit" />
+        <EditText android:id="@+id/etC3" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/bg_input" />
         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="联系4:" />
-        <EditText android:id="@+id/etC4" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/bg_edit" />
+        <EditText android:id="@+id/etC4" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/bg_input" />
         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="联系5:" />
-        <EditText android:id="@+id/etC5" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/bg_edit" />
+        <EditText android:id="@+id/etC5" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/bg_input" />
         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="联系6:" />
-        <EditText android:id="@+id/etC6" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/bg_edit" />
+        <EditText android:id="@+id/etC6" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/bg_input" />
 
         <CheckBox
             android:id="@+id/cbAi"
@@ -185,7 +218,7 @@
             android:layout_height="wrap_content"
             android:minLines="3"
             android:gravity="top"
-            android:background="@drawable/bg_edit"
+            android:background="@drawable/bg_input"
             android:text="你好，很高兴认识你" />
 
         <LinearLayout
@@ -208,6 +241,218 @@
                 android:layout_weight="1"
                 android:text="启动悬浮窗" />
         </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="③ AI 智能控制（智谱 GLM 看屏操作）"
+            android:background="@drawable/bg_card"
+            android:paddingLeft="14dp"
+            android:paddingRight="14dp"
+            android:paddingTop="14dp"
+            android:paddingBottom="14dp"
+            android:layout_marginTop="14dp"
+            android:textColor="@color/pa_brand_dark"
+            android:textSize="15sp"
+            />
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="智谱 API Key:" />
+        <EditText
+            android:id="@+id/etGlmKey"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_input"
+            android:inputType="textPassword"
+            android:hint="open.bigmodel.cn 的 API Key" />
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="任务描述:" />
+        <EditText
+            android:id="@+id/etAiTask"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minLines="2"
+            android:gravity="top"
+            android:background="@drawable/bg_input"
+            android:hint="例: 打开抖音, 搜索美食, 进入第一个用户的个人主页" />
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="模型:" />
+            <EditText android:id="@+id/etAiModel" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:background="@drawable/bg_input" android:text="glm-4.5v" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="最多步数:" />
+            <EditText android:id="@+id/etAiSteps" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:background="@drawable/bg_input" android:text="15" />
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+            <EditText
+                android:id="@+id/etAiKeyword"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_input"
+                android:hint="搜索关键词, 生成导航任务" />
+            <Button
+                android:id="@+id/btnGenTask"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="生成任务" />
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+            <Button
+                android:id="@+id/btnAiTest"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="截屏问一次(不执行)" />
+            <Button
+                android:id="@+id/btnAiStart"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="立即启动AI执行" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvAiResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#FF666666"
+            android:textSize="12sp"
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="④ 评论区舆情与风控（监控自己作品下的评论）"
+            android:background="@drawable/bg_card"
+            android:paddingLeft="14dp"
+            android:paddingRight="14dp"
+            android:paddingTop="14dp"
+            android:paddingBottom="14dp"
+            android:layout_marginTop="14dp"
+            android:textColor="@color/pa_brand_dark"
+            android:textSize="15sp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="扫描当前屏幕的评论, 用 GLM 识别别人发的涉赌/涉黄/黑产引流广告并支持一键举报。只读取与举报, 不会向任何人发送私信。"
+            android:textColor="#FF666666"
+            android:textSize="12sp" />
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+            <Button
+                android:id="@+id/btnScanOnly"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="仅扫描评论" />
+            <Button
+                android:id="@+id/btnScanAi"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="扫描+AI风险识别" />
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+            <CheckBox
+                android:id="@+id/cbGuardScroll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="自动下滑采集" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="最多滚动轮数:" />
+            <EditText android:id="@+id/etGuardRounds" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:background="@drawable/bg_input" android:inputType="number" android:text="6" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvGuardStat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#FF666666"
+            android:textSize="12sp"
+            android:text="尚未扫描" />
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="风险处理联系QQ:" />
+            <EditText
+                android:id="@+id/etRiskQQ"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_input"
+                android:inputType="number"
+                android:text="286622079" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llRisk"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+        <Button
+            android:id="@+id/btnReportAll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="逐条举报全部高风险评论"
+            android:visibility="gone" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="⑤ 主动私信自动回复（回复内容手动设置）"
+            android:background="@drawable/bg_card"
+            android:paddingLeft="14dp"
+            android:paddingRight="14dp"
+            android:paddingTop="14dp"
+            android:paddingBottom="14dp"
+            android:layout_marginTop="14dp"
+            android:textColor="@color/pa_brand_dark"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            />
+
+        <CheckBox
+            android:id="@+id/cbAutoDm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="收到私信时自动回复下面这段话" />
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="自动回复内容:" />
+        <EditText
+            android:id="@+id/etAutoDmText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minLines="2"
+            android:gravity="top"
+            android:background="@drawable/bg_input"
+            android:hint="例: 你好呀, 看到你的评论了, 很高兴认识你~" />
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="目标App包名:" />
+            <EditText android:id="@+id/etAutoDmApps" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:background="@drawable/bg_input" android:text="com.ss.android.ugc.aweme,com.xingin.xhs" />
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="每小时最多回:" />
+            <EditText android:id="@+id/etAutoDmMax" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:background="@drawable/bg_input" android:inputType="number" android:text="10" />
+            <Button
+                android:id="@+id/btnDmTest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="试填入(不发送)" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvDmResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#FF666666"
+            android:textSize="12sp"
+            android:paddingBottom="8dp" />
 
     </LinearLayout>
 </ScrollView>

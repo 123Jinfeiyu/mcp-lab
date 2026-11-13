@@ -68,6 +68,14 @@ public class AccessService extends AccessibilityService {
         return gesture(p, ms <= 0 ? 300 : ms);
     }
 
+    /** 长按(用于唤起评论的举报菜单) */
+    public static boolean longTap(float x, float y) {
+        Path p = new Path();
+        p.moveTo(x, y);
+        p.lineTo(x + 1, y + 1);
+        return gesture(p, 900);
+    }
+
     public static android.graphics.Bitmap screenshot(int l, int t, int r, int b) {
         android.graphics.Bitmap full = null;
         if (I != null && android.os.Build.VERSION.SDK_INT >= 30) {
@@ -92,32 +100,18 @@ public class AccessService extends AccessibilityService {
     }
 
     private static android.graphics.Bitmap shotAccessibility() {
-        final java.util.concurrent.CountDownLatch latch = new java.util.concurrent.CountDownLatch(1);
-        final android.graphics.Bitmap[] out = new android.graphics.Bitmap[1];
+        // API 30+ 走独立类(反射调用, 避免低版本加载失败导致无障碍服务挂掉)
         try {
-            I.takeScreenshot(android.view.Display.DEFAULT_DISPLAY, I.getMainExecutor(),
-                    new TakeScreenshotCallback() {
-                        public void onSuccess(ScreenshotResult sr) {
-                            try {
-                                android.graphics.Bitmap full =
-                                        android.graphics.Bitmap.wrapHardwareBuffer(sr.getHardwareBuffer(), sr.getColorSpace());
-                                if (full != null) {
-                                    out[0] = full.copy(android.graphics.Bitmap.Config.ARGB_8888, false);
-                                    full.recycle();
-                                }
-                            } catch (Throwable e) {
-                            } finally {
-                                latch.countDown();
-                            }
-                        }
-
-                        public void onFailure(int reason) {
-                            latch.countDown();
-                        }
-                    });
-            latch.await(3, java.util.concurrent.TimeUnit.SECONDS);
-        } catch (Throwable e) {
+            if (android.os.Build.VERSION.SDK_INT >= 30 && I != null) {
+                Class<?> c = Class.forName("com.sixzs.local.ScreenShot30");
+                java.lang.reflect.Method m = c.getDeclaredMethod("capture", AccessibilityService.class);
+                m.setAccessible(true);
+                Object r = m.invoke(null, I);
+                if (r instanceof android.graphics.Bitmap) return (android.graphics.Bitmap) r;
+            }
+        } catch (Throwable t) {
+            Logx.e("无障碍截图失败", t);
         }
-        return out[0];
+        return null;
     }
 }

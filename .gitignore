@@ -21,3 +21,10 @@ site-packages/
 .idea/
 .DS_Store
 Thumbs.db
+
+# ---- 第三方二进制工具(不入库) ----
+新App/tools/scrcpy/
+恋爱键盘/tools/scrcpy/
+
+# ---- 空/损坏的截图 ----
+docs/assets/ui_*.png

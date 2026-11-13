@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 顶部品牌区: 深蓝渐变 -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <gradient
+        android:angle="315"
+        android:startColor="#153C5C"
+        android:centerColor="#2F6FA8"
+        android:endColor="#4A93CC" />
+</shape>

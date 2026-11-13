@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 右下角缩放把手: L 形角标, 视觉上提示可拖 -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#00FFFFFF" />
+            <corners android:radius="4dp" />
+        </shape>
+    </item>
+    <item android:left="14dp" android:top="4dp" android:right="4dp" android:bottom="14dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#E8A0BC" />
+            <corners android:radius="2dp" />
+        </shape>
+    </item>
+    <item android:left="4dp" android:top="14dp" android:right="14dp" android:bottom="4dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#E8A0BC" />
+            <corners android:radius="2dp" />
+        </shape>
+    </item>
+</layer-list>

@@ -63,5 +63,21 @@
                 android:name="android.view.im"
                 android:resource="@xml/ime_method" />
         </service>
+
+        <receiver
+            android:name=".GuardReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.sixzs.local.SCAN_GUARD" />
+                <action android:name="com.sixzs.local.SET_CONFIG" />
+                <action android:name="com.sixzs.local.START_AI" />
+                <action android:name="com.sixzs.local.STOP_AI" />
+                <action android:name="com.sixzs.local.REPORT_NEXT" />
+                <action android:name="com.sixzs.local.START_SCRIPT" />
+                <action android:name="com.sixzs.local.STOP_SCRIPT" />
+                <action android:name="com.sixzs.local.DM_GUARD_ON" />
+                <action android:name="com.sixzs.local.DM_GUARD_OFF" />
+            </intent-filter>
+        </receiver>
     </application>
 </manifest>

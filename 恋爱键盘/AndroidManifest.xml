@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.sixzs.lovekb"
+    android:versionCode="1"
+    android:versionName="1.0">
+
+    <uses-sdk android:minSdkVersion="24" android:targetSdkVersion="34" />
+
+    <!-- 悬浮窗 -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <!-- 前台服务: 基础 + MediaProjection 类型(Android 14+ 用截图必须声明) -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PROJECTION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:label="@string/app_name"
+        android:icon="@drawable/ic_launcher"
+        android:usesCleartextTraffic="true"
+        android:allowBackup="false">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:configChanges="orientation|screenSize|keyboardHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 后台录屏服务: mediaProjection 类型。
+             Android 14+ 要求 createVirtualDisplay 必须在这种前台服务里做,
+             且必须先 startForeground(..., FOREGROUND_SERVICE_TYPE_MEDIA_PROJECTION) -->
+        <service
+            android:name=".CaptureService"
+            android:exported="false"
+            android:foregroundServiceType="mediaProjection" />
+
+        <service
+            android:name=".FloatService"
+            android:exported="false"
+            android:foregroundServiceType="dataSync|mediaProjection" />
+
+        <service
+            android:name=".AccessService"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/access_service" />
+        </service>
+
+        <!-- 恋爱键盘(输入法): Android 10+ 只有输入法能读剪贴板 -->
+        <service
+            android:name=".LoveImeService"
+            android:exported="true"
+            android:label="恋爱键盘"
+            android:permission="android.permission.BIND_INPUT_METHOD">
+            <intent-filter>
+                <action android:name="android.view.InputMethod" />
+            </intent-filter>
+            <meta-data
+                android:name="android.view.im"
+                android:resource="@xml/ime_method" />
+        </service>
+
+        <receiver
+            android:name=".LoveReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.sixzs.lovekb.READ_CLIP" />
+                <action android:name="com.sixzs.lovekb.SEND_CLIP" />
+                <action android:name="com.sixzs.lovekb.GENERATE" />
+                <action android:name="com.sixzs.lovekb.PICK" />
+                <action android:name="com.sixzs.lovekb.FILL" />
+                <action android:name="com.sixzs.lovekb.FOLD" />
+                <action android:name="com.sixzs.lovekb.SET_SIZE" />
+                <action android:name="com.sixzs.lovekb.IME_READ" />
+                <action android:name="com.sixzs.lovekb.IME_COMMIT" />
+                <action android:name="com.sixzs.lovekb.READ_CONTEXT" />
+                <action android:name="com.sixzs.lovekb.SHOT_ANALYZE" />
+                <action android:name="com.sixzs.lovekb.TEST_SHOT" />
+                <action android:name="com.sixzs.lovekb.UNDO" />
+                <action android:name="com.sixzs.lovekb.SET_DRAFT" />
+                <action android:name="com.sixzs.lovekb.SEND_DRAFT" />
+                <action android:name="com.sixzs.lovekb.CLEANUP" />
+                <action android:name="com.sixzs.lovekb.CAP_START" />
+                <action android:name="com.sixzs.lovekb.CAP_STOP" />
+                <action android:name="com.sixzs.lovekb.SET_CONFIG" />
+                <action android:name="com.sixzs.lovekb.START_PANEL" />
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

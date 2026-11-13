@@ -22,7 +22,7 @@ public class NodeUtil {
         NEXT_ID = 1;
     }
 
-    private static int put(AccessibilityNodeInfo n) {
+    public static int put(AccessibilityNodeInfo n) {
         int id = NEXT_ID++;
         CACHE.put(id, n);
         return id;
